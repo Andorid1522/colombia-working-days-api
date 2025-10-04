@@ -1,0 +1,144 @@
+{
+  "info": {
+    "name": "Colombia Working Days API",
+    "description": "API para calcular días y horas hábiles en Colombia",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3001",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sumar 1 día hábil",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/working-days?days=1",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "working-days"],
+          "query": [
+            {
+              "key": "days",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sumar 4 horas hábiles",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/working-days?hours=4",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "working-days"],
+          "query": [
+            {
+              "key": "hours",
+              "value": "4"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Fecha específica + días y horas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/working-days?days=2&hours=3&date=2025-01-15T13:00:00.000Z",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "working-days"],
+          "query": [
+            {
+              "key": "days",
+              "value": "2"
+            },
+            {
+              "key": "hours",
+              "value": "3"
+            },
+            {
+              "key": "date",
+              "value": "2025-01-15T13:00:00.000Z"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Viernes → Lunes (salto de fin de semana)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/working-days?hours=1&date=2025-01-10T22:00:00.000Z",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "working-days"],
+          "query": [
+            {
+              "key": "hours",
+              "value": "1"
+            },
+            {
+              "key": "date",
+              "value": "2025-01-10T22:00:00.000Z",
+              "description": "Viernes 5 PM Colombia"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Error - Sin parámetros",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/working-days",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "working-days"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Error - Endpoint no encontrado",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/invalid-endpoint",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "invalid-endpoint"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
