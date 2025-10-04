@@ -1,6 +1,12 @@
 # Colombia Working Days API
 
-API REST para calcular días y horas hábiles en Colombia, considerando festivos nacionales, horarios laborales y zona horaria local.
+🇨🇴 API REST para calcular días y horas hábiles en Colombia, considerando festivos nacionales, horarios laborales y zona horaria local.
+
+## 🔗 Enlaces
+
+- **🌐 API en Producción**: [https://colombia-working-days-api.vercel.app](https://colombia-working-days-api.vercel.app)
+- **📂 Repositorio GitHub**: [https://github.com/Andorid1522/colombia-working-days-api](https://github.com/Andorid1522/colombia-working-days-api)
+- **📋 Documentación**: Este README
 
 ## ✨ Características
 
@@ -22,7 +28,7 @@ Cálculo de días y horas hábiles
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/tu-usuario/colombia-working-days-api.git
+git clone https://github.com/Andorid1522/colombia-working-days-api.git
 cd colombia-working-days-api
 
 # 2. Instalar dependencias
@@ -131,14 +137,14 @@ curl "http://localhost:3001/api/working-days?days=2&hours=3&date=2025-01-15T13:0
 **Producción:**
 ```bash
 # 🎉 Calcular desde un viernes (salta al lunes)
-curl "https://your-api.vercel.app/api/working-days?hours=1&date=2025-01-10T22:00:00.000Z"
+curl "https://colombia-working-days-api.vercel.app/api/working-days?hours=1&date=2025-01-10T22:00:00.000Z"
 ```
 
 ### 📨 Pruebas con Postman
 
 #### 🔍 Configuración Básica:
 - **Método**: `GET`
-- **URL Base**: `http://localhost:3001` (local) o `https://your-api.vercel.app` (producción)
+- **URL Base**: `http://localhost:3001` (local) o `https://colombia-working-days-api.vercel.app` (producción)
 - **Content-Type**: No requerido (solo GET requests)
 
 #### 📝 Ejemplos de Requests:
@@ -176,10 +182,28 @@ curl "https://your-api.vercel.app/api/working-days?hours=1&date=2025-01-10T22:00
 Puedes importar la colección completa:
 1. **Descargar**: [`postman_collection.json`](./postman_collection.json)
 2. **Importar** en Postman: `File > Import > Upload Files`
-3. **Configurar variable**: `baseUrl = http://localhost:3001`
+3. **Configurar variable**: 
+   - **Local**: `baseUrl = http://localhost:3001`
+   - **Producción**: `baseUrl = https://colombia-working-days-api.vercel.app`
 4. **Ejecutar** cualquier request de la colección
 
 > 💡 **Tip**: La colección incluye todos los casos de prueba y manejo de errores
+
+### 🌍 **Ejemplos de Producción**
+
+```bash
+# Health check
+curl "https://colombia-working-days-api.vercel.app/health"
+
+# Sumar 1 día hábil
+curl "https://colombia-working-days-api.vercel.app/api/working-days?days=1"
+
+# Sumar 4 horas hábiles
+curl "https://colombia-working-days-api.vercel.app/api/working-days?hours=4"
+
+# Fecha específica con festivos
+curl "https://colombia-working-days-api.vercel.app/api/working-days?date=2025-04-10T15:00:00.000Z&days=5&hours=4"
+```
 
 #### 🔧 Configuraciones Adicionales
 
@@ -301,6 +325,14 @@ tests/
 
 ## 🌐 Despliegue
 
+### 🎉 **API en Producción**
+
+**✅ Desplegada en Vercel**: `https://colombia-working-days-api.vercel.app`
+
+**Endpoints disponibles:**
+- **Health Check**: `https://colombia-working-days-api.vercel.app/health`
+- **API Principal**: `https://colombia-working-days-api.vercel.app/api/working-days`
+
 ### 🚀 Plataformas Soportadas
 
 - ✅ **Vercel** (recomendado) - Configuración incluida (`vercel.json`)
@@ -324,7 +356,7 @@ NODE_ENV=production # Entorno de ejecución
 curl http://localhost:3001/health
 
 # Producción
-curl https://your-api.vercel.app/health
+curl https://colombia-working-days-api.vercel.app/health
 
 # Response: {"status": "OK"}
 ```
@@ -352,11 +384,11 @@ curl https://your-api.vercel.app/health
 
 ## 🤝 Contribución
 
-1. Fork el repositorio
+1. **Fork** el repositorio: [https://github.com/Andorid1522/colombia-working-days-api](https://github.com/Andorid1522/colombia-working-days-api)
 2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
 3. Commit tus cambios (`git commit -am 'Agregar nueva funcionalidad'`)
 4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Crea un Pull Request
+5. Crea un **Pull Request** en GitHub
 
 ## 📄 Licencia
 
